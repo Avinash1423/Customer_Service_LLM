@@ -3,6 +3,8 @@ package com.Ai.Courier.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name="orderObject")
 public class OrderObject {
@@ -25,6 +27,9 @@ public class OrderObject {
 
     @Column(name="status")
     String status;
+
+    @Column(name="dueDate")
+    LocalDate dueDate;
 
     @ManyToOne
     @JoinColumn(name="sendCustomerId",insertable = false,updatable = false,foreignKey = @ForeignKey(name="fk_CO_OB_S"))

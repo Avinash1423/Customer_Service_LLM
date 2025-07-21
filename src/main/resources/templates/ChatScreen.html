@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/ChatScreen.css}">
+</head>
+<body>
+
+<div class="container">
+
+<div class="chatPanel">
+
+    <div class="messageArea">
+
+        <div  class="messageBox" th:each="message:${listOfMessages}">
+
+            <div class="question" th:text="${message.getQuestion}"></div>
+
+            <div class="answer" th:text="${message.getAnswer}"></div>
+
+        </div>
+
+
+    </div>
+
+
+<div class="inputArea">
+<form method="post" action="/chat">
+<textarea name="userInput" class="inputBox" rows="1" oninput="autogrow(this)" required></textarea>
+    <button type="submit">➤</button>
+</form>
+</div>
+
+
+</div>
+
+
+<div class="displayPanel">
+
+
+</div>
+
+</div>
+</body>
+<script>
+
+    function autogrow(el){
+
+        el.style.height="auto";
+        el.style.height=(el.scrollHeight)+"px";
+    }
+
+</script>
+</html>
