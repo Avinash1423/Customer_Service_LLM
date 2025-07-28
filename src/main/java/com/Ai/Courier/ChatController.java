@@ -4,6 +4,9 @@ import com.Ai.Courier.model.MessageHistoryObject;
 import com.Ai.Courier.model.MessageHistoryObjectRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,14 +20,17 @@ import java.util.Map;
 @Controller
 public class ChatController {
 
+    @Autowired
     ChatClient chatClient;
+    @Autowired
     MessageHistoryObjectRepository messageHistoryObjectRepository;
+    @Autowired
+    ParseAndRender parseAndRender;
+    @Autowired
+    ServiceTools ServiceTools;
 
-    public ChatController(ChatClient chatClient, MessageHistoryObjectRepository messageHistoryObjectRepository) {
-        this.chatClient = chatClient;
-        this.messageHistoryObjectRepository = messageHistoryObjectRepository;
-    }
-
+    @Value("classpath:/docs/SystemPrompt.txt")
+    Resource SystemPrompt;
 
     @PostMapping("/chat")
     public String chatControllerMethod(@RequestParam(required = false) String userInput , HttpSession httpsession, Model model){
@@ -34,9 +40,11 @@ public class ChatController {
 
         Integer loggedInUserId=(Integer) httpsession.getAttribute("loggedInUser");
 
-        String response=chatClient.prompt(userInput).call().content();
+        String response=chatClient.prompt().system(SystemPrompt).user(userInput).tools(ServiceTools).call().content();
 
-        MessageHistoryObject newMessage=new MessageHistoryObject(loggedInUserId,userInput,response);
+        String finalResponse=parseAndRender.ParseAndRenderMethod(response);
+
+        MessageHistoryObject newMessage=new MessageHistoryObject(loggedInUserId,userInput,finalResponse);
 
         messageHistoryObjectRepository.save(newMessage);
 

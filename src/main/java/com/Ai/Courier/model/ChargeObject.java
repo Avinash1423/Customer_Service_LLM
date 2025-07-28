@@ -8,6 +8,10 @@ import jakarta.persistence.Table;
 @Table(name="charge")
 public class ChargeObject {
 
+    public ChargeObject(){
+
+    }
+
     @Id
     Integer orderId;
 
@@ -18,7 +22,46 @@ public class ChargeObject {
     Long orderDistance;
 
     @Column(name="additionalFees")
-    Long additionalFees;
+    Integer additionalFees;
+
+    public ChargeObject(Integer orderId, Long orderWeight, Long orderDistance, Integer additionalFees) {
+        this.orderId = orderId;
+        this.orderWeight = orderWeight;
+        this.orderDistance = orderDistance;
+        this.additionalFees = additionalFees;
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public Long getOrderWeight() {
+        return orderWeight;
+    }
+
+    public void setOrderWeight(Long orderWeight) {
+        this.orderWeight = orderWeight;
+    }
+
+    public Long getOrderDistance() {
+        return orderDistance;
+    }
+
+    public void setOrderDistance(Long orderDistance) {
+        this.orderDistance = orderDistance;
+    }
+
+    public Integer getAdditionalFees() {
+        return additionalFees;
+    }
+
+    public void setAdditionalFees(Integer additionalFees) {
+        this.additionalFees = additionalFees;
+    }
 
     //// orderCharge-->( per kg  price * weight) + (per km price * distance)
 

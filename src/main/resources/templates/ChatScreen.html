@@ -15,9 +15,9 @@
 
         <div  class="messageBox" th:each="message:${listOfMessages}">
 
-            <div class="question" th:text="${message.getQuestion}"></div>
+            <div class="question" th:utext="${message.getQuestion}"></div>
 
-            <div class="answer" th:text="${message.getAnswer}"></div>
+            <div class="answer" th:utext="${message.getAnswer}"></div>
 
         </div>
 

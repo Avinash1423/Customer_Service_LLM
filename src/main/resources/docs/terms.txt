@@ -1,0 +1,113 @@
+hyperSonic Courier – Terms of Service
+1. Introduction
+hyperSonic is a business-to-customer parcel delivery service. A registered customer (referred to
+as the sender) may ship parcels to another individual (referred to as the receiver) via the
+hyperSonic system.
+Only the sender is authorized to raise complaints or request changes regarding a parcel.
+2. Parcel Delivery Stages
+Each parcel moves through the following stages:
+1. Picked Up
+2. Sorting
+3. Distribution
+4. Delivered
+(Optional outcomes: Returned, Denied)
+1 Pick-Up Stage
+• A courier agent picks up the parcel and enters all required order details.
+• Customer registration is mandatory before parcel creation.
+2 Sorting Stage
+• The parcel is inspected for compliance and properly packed.
+• Shipping charges are calculated based on parcel weight and delivery distance.
+• Charges are logged in the Charge Database.
+3 Distribution Stage
+• The parcel is transferred to the distribution center closest to the receiver.
+4 Delivery Stage
+• The parcel is delivered to the receiver.
+3. Common Issues & Request Types
+The following are recognized user concerns handled by the system:
+1. Received the wrong parcel
+2. Delay in receipt of parcel
+3. Item damaged
+4. Overcharged
+5. Underpaid
+6. Request to change receiver address
+7. Request to change receiver
+8. Request to cancel the order
+9. Request to track a parcel
+10. Request to view orders sent
+11. Request to view orders to be received
+4. Handling of Issues & Requests
+4.1 Wrong Parcel Received
+• Only the sender may raise this issue.
+• The sender must provide the parcel ID.
+• The system will compare the actual parcel’s status with the claimed issue.
+• The issue is logged in the complaint system, and a customer service agent is notified.
+4.2 Parcel Delay
+• If the current date is before the expected delivery date, the user is asked to wait.
+• If it’s past the due date, a complaint is filed, and a CS agent is notified.
+4.3 Damaged Item
+• The case is escalated directly to a customer service agent for investigation.
+• A reference number is issued and stored in the issue reference table. The agent will review the
+issue and contact the customer.
+4.4 Overcharged
+• The system will compare the calculated charge with the payment received.
+• If excess payment is detected, a refund is issued.
+• If not, the sender is informed that the charge is correct.
+4.5 Underpaid
+• The system checks if the amount paid is lower than the due charge.
+• If underpayment is confirmed, the sender must pay the outstanding balance.
+4.6 Change Receiver Address
+• Changes can be made until the distribution stage:
+o Picked Up stage → No extra fee
+o Sorting stage → Rs. 100 additional fee
+o Distribution stage → Rs. 200 additional fee
+o Delivered stage → Change not allowed
+4.7 Change Receiver (Name/Person)
+• Follows the same rules and fees as changing the address.
+4.8 Cancel the Order
+• Cancellation is allowed before the sorting stage.
+o If cancelled before sorting, 50% of the payment is refunded.
+o If cancelled after sorting, no refund is issued.
+o Orders cannot be cancelled after distribution.
+4.9 Track Parcel
+• Users can track their parcel using the Parcel ID.
+• The current status (picked up, sorting, distribution, etc.) will be displayed.
+4.10 View Sent Orders
+• The sender may request a list of all orders they have sent.
+4.11 View Orders to Receive
+• The receiver may request to view all orders addressed to them.
+5. System Processes & Rules
+5.1 Order Creation
+• At the time of pickup, the agent enters all parcel and customer details into the Order Database.
+• If the customer is unregistered, they are first registered (this process is outside current system
+scope).
+5.2 Sorting Center
+• The parcel undergoes a compliance check.
+• Proper packing is verified.
+• Charges are calculated based on weight and distance.
+• This is when an entry is made in the Charge Database.
+5.3 Distribution Center
+• The parcel is sent to the nearest distribution point.
+• Parcels can still be changed or cancelled at this stage, but with additional fees.
+6. Fees & Payment Rules
+• Charge Calculation:
+o Base charge = (20 * weight in kg) + (30 * distance in km)
+o Additional fees may apply for changes (see Section 4.6–4.8).
+• Payment Policy:
+o Once the parcel reaches the sorting stage, payment is required before further processing.
+o Only after payment is received will the order status be updated.
+o Overpaid amounts are refunded (if verified).
+o Underpaid orders will remain on hold until full payment is received.
+• Additional Fees Database:
+o Tracks extra charges applied for changes (e.g., receiver change, cancellation).
+o Example reasons include “Change at sorting” or “Change at distribution”.
+• Refund Database:
+o Stores refund transactions and their associated reasons.
+7. Additional Notes
+• At the sorting stage, a parcel may be denied due to policy violations. These are returned to the
+sender, and standard charges still apply.
+• All complaints are logged with parcel ID, timestamp, and action taken.
+• Payment records are updated upon successful transactions; logic for live payment processing is
+outside the scope of this service description.
+8. Disclaimer
+hyperSonic reserves the right to modify policies, fees, and delivery terms at any time. All data is
+stored securely and used solely to fulfill delivery and support obligations.

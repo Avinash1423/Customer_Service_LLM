@@ -1,15 +1,44 @@
 package com.Ai.Courier.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="additonalCharge")
+@Table(name="additionalCharge")
 public class AdditonalChargeObject {
+    public Integer getAddtionalChargeId() {
+        return addtionalChargeId;
+    }
+
+    public void setAddtionalChargeId(Integer addtionalChargeId) {
+        this.addtionalChargeId = addtionalChargeId;
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public Integer getAdditionalFees() {
+        return additionalFees;
+    }
+
+    public void setAdditionalFees(Integer additionalFees) {
+        this.additionalFees = additionalFees;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
 
     @Id
+    @GeneratedValue(strategy =GenerationType.IDENTITY)
     @Column(name="addtionalChargeId")
     Integer addtionalChargeId;
 
@@ -22,4 +51,12 @@ public class AdditonalChargeObject {
     @Column(name="reason")
     String reason;
 
+    public AdditonalChargeObject(Integer orderId, Integer additionalFees, String reason) {
+        this.orderId = orderId;
+        this.additionalFees = additionalFees;
+        this.reason = reason;
+    }
+
+    public AdditonalChargeObject() {
+    }
 }

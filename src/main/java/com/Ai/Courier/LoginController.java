@@ -57,8 +57,5 @@ public class LoginController {
 
         return "ChatScreen";
 
-
-
-
     }
 }

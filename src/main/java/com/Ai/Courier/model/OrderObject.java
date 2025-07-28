@@ -47,7 +47,63 @@ public class OrderObject {
     @JoinColumn(name="receiverAddressId",insertable = false,updatable = false,foreignKey = @ForeignKey(name="fk_CO_CAO_R"))
     CustomerAddressObject customerAddressObject_FromOrderObjectAsReceiver;
 
+    public OrderObject() {
+    }
 
 
+    public Integer getOrderId() {
+        return orderId;
+    }
 
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public Integer getSendCustomerId() {
+        return sendCustomerId;
+    }
+
+    public void setSendCustomerId(Integer sendCustomerId) {
+        this.sendCustomerId = sendCustomerId;
+    }
+
+    public Integer getReceiveCustomerId() {
+        return receiveCustomerId;
+    }
+
+    public void setReceiveCustomerId(Integer receiveCustomerId) {
+        this.receiveCustomerId = receiveCustomerId;
+    }
+
+    public Integer getSenderAddressId() {
+        return senderAddressId;
+    }
+
+    public void setSenderAddressId(Integer senderAddressId) {
+        this.senderAddressId = senderAddressId;
+    }
+
+    public Integer getReceiverAddressId() {
+        return receiverAddressId;
+    }
+
+    public void setReceiverAddressId(Integer receiverAddressId) {
+        this.receiverAddressId = receiverAddressId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
 }

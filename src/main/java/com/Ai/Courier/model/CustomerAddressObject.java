@@ -44,13 +44,26 @@ public class CustomerAddressObject {
     @OneToMany(mappedBy="customerAddressObject_FromOrderObjectAsReceiver")
     List<OrderObject> listOfAddressesAsReceiver;
 
+    public CustomerAddressObject(Integer addressId,  String line1, String line2, String province, String district, String city, Integer postalCode) {
+        this.addressId = addressId;
+        this.line1 = line1;
+        this.line2 = line2;
+        this.province = province;
+        this.district = district;
+        this.city = city;
+        this.postalCode = postalCode;
+    }
+
+    public CustomerAddressObject() {
+    }
+
 
     public Integer getAddressId() {
         return addressId;
     }
 
     public void setAddressId(Integer addressId) {
-        addressId = addressId;
+        this.addressId = addressId;
     }
 
     public Integer getCustomerId() {
@@ -58,7 +71,7 @@ public class CustomerAddressObject {
     }
 
     public void setCustomerId(Integer customerId) {
-        customerId = customerId;
+        this.customerId = customerId;
     }
 
     public String getLine1() {
@@ -66,7 +79,7 @@ public class CustomerAddressObject {
     }
 
     public void setLine1(String line1) {
-        line1 = line1;
+        this.line1 = line1;
     }
 
     public String getLine2() {
@@ -74,7 +87,7 @@ public class CustomerAddressObject {
     }
 
     public void setLine2(String line2) {
-        line2 = line2;
+        this.line2 = line2;
     }
 
     public String getProvince() {
@@ -82,7 +95,7 @@ public class CustomerAddressObject {
     }
 
     public void setProvince(String province) {
-        province = province;
+        this.province = province;
     }
 
     public String getDistrict() {
@@ -90,7 +103,7 @@ public class CustomerAddressObject {
     }
 
     public void setDistrict(String district) {
-        district = district;
+        this.district = district;
     }
 
     public String getCity() {
@@ -98,7 +111,7 @@ public class CustomerAddressObject {
     }
 
     public void setCity(String city) {
-        city = city;
+        this.city = city;
     }
 
     public Integer getPostalCode() {
