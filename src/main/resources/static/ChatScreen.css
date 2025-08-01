@@ -2,26 +2,25 @@
     display:flex;
     height:100vh;
     flex-direction: row;
+    font-family: "Comic Sans MS", cursive;
 }
 
-.displayPanel{
-    flex:0.4;
-    background-color: lightblue;
-
-}
 
 .chatPanel{
     flex:0.6;
-
     display:flex;
     flex-direction:column;
+    background: #eae6f2;
 }
 
 
 .messageArea{
-    padding: 10px;
+    padding: 20px;
     flex:1;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
 }
 
@@ -29,6 +28,7 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    background-color: #ddd7ea;
 }
 
 
@@ -37,11 +37,12 @@
     color: black;
     font-size: 1rem;
     font-family: "Comic Sans MS", serif;
-    border-color: red;
+    border-color: #c0a6e0;
     border-style: solid;
     border-radius: 999px;
     padding:2px;
     width: 90%;
+    background-color: #ffffff;
 
 
 }
@@ -49,23 +50,88 @@
 .inputArea button{
 
     border-radius: 999px;
-    background-color: white;
+    background-color: #ffb347;
     color: black;
     width:32px;
     height:32px;
     font-size:1rem ;
     cursor:pointer;
 
+
 }
 
 .question{
 
-    padding:2px;
-    color:red;
+    align-self:flex-end;
+    max-width:70%;
+    background-color:#ffb347;
+    font-family: "Comic Sans MS", serif;
+    padding:10px 15px;
+    color:black;
+    border-radius:20px 20px 0 20px;
+    word-wrap:break-word;
+
+
+
 }
 
 .answer{
-    padding:2px;
-    color:darkblue;
+    align-self:flex-start;
+    max-width:70%;
+    background-color: #d0e6ff;
+    color: #003366;
+    font-family: "Comic Sans MS", serif;
+    padding:10px 15px;
+    border-radius:20px 20px 0 20px;
+    word-wrap:break-word;
 
+}
+
+.messageBox{
+   display:flex;
+    flex-direction:column;
+    gap:5px;
+
+}
+
+.displayPanel{
+    flex:0.4;
+    background-color: lightblue;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.display{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:0.5rem;
+
+}
+
+
+
+.logoText{
+    font-family: 'Orbitron', sans-serif;
+    font-size:4rem;
+
+
+}
+
+.Hyper{
+
+    color:Red;
+}
+
+.Bean {
+
+    color:DarkGreen;
+
+}
+
+.phrase{
+
+    font-size:2rem;
 }

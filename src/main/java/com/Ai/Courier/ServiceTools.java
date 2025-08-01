@@ -1,13 +1,17 @@
 package com.Ai.Courier;
 
 import com.Ai.Courier.model.*;
+import com.Ai.Courier.webSocket.AvailableAgentRepository;
+import com.Ai.Courier.webSocket.AvailableAgents;
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.ui.Model;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -31,7 +35,11 @@ public class ServiceTools {
     @Autowired
     issueReferenceRepository issueRepo;
     @Autowired
-    private RefundObjectRepository refundObjectRepository;
+     RefundObjectRepository refundObjectRepository;
+    @Autowired
+    AvailableAgentRepository availableAgentRepository;
+
+
 
 
     @Tool(description = "Verify if the user chatting with you is the Sender of the respective order")//c1-ok
@@ -300,6 +308,9 @@ public class ServiceTools {
         return dueAmount/2;
 
     }
+
+
+
 
 }
 

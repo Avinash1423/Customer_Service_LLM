@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+</head>
+<body>
+
+<h3>Chat Area </h3>
+
+<div id="chatArea">
+  <div id="listOfMessages"></div>
+
+</div>
+
+
+<input type="text" id="message" name="message" placeholder="Type Your message here">
+
+<button onclick="sendMessage()">Send</button>
+
+
+
+<script type="text/javascript">
+
+  const sender= `[[${sender}]]`;
+  const receiver= `[[${receiver}]]`;
+
+
+  const socket= new SockJS('/ws');
+  const stompClient=Stomp.over(socket);
+
+  // let historyFetched=false;
+
+  stompClient.connect({},function(){
+
+    // if(!historyFetched) {
+    //   stompClient.send("/app/join", {},receiver)
+    //   historyFetched = true;
+    // }
+
+    stompClient.subscribe('/queue/messages-'+sender,function(msg){
+
+      const message=JSON.parse(msg.body);
+      const messageDiv=document.getElementById("listOfMessages");
+      messageDiv.innerHTML += "<div><b>"+ message.message +"</b></div>";
+
+    });
+
+    // stompClient.subscribe('/queue/messages-'+receiver,function(msg){
+    //
+    //   const message=JSON.parse(msg.body);
+    //   const messageDiv=document.getElementById("listOfMessages");
+    //   messageDiv.innerHTML += "<div><b>"+ message.message +"</b></div>";
+    //
+    // });
+  });
+
+  function sendMessage(){
+
+
+    const message=document.getElementById("message").value; // hello world
+
+    if(!message){
+
+      alert("Enter Message");
+      return;
+    }
+
+
+
+    stompClient.send("/app/messageCustomer",{},JSON.stringify({
+
+      sender:sender,
+      receiver:receiver,
+      message:message
+
+    }));
+
+    document.getElementById("message").value="";
+  }
+
+</script>
+</body>
+</html>

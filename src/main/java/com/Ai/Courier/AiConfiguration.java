@@ -42,4 +42,11 @@ public class AiConfiguration {
         return builder.defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).conversationId(String.valueOf(userId)).build(), QuestionAnswerAdvisor.builder(pineconeVectorStore).build()).build();
 
     }
+
+    @Bean("basic")
+    public ChatClient chatClient2(ChatClient.Builder builder){
+
+
+        return builder.build();
+    }
 }

@@ -58,4 +58,11 @@ public class LoginController {
         return "ChatScreen";
 
     }
+
+    @GetMapping("/errorHome")
+    public String errorResponse(){
+
+
+        return "LoginScreen";
+    }
 }
